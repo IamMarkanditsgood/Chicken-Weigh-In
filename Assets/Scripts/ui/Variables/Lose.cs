@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -18,6 +19,7 @@ public class Lose : BasickScreen
 
     private void RestartScene()
     {
+        PlayerPrefs.SetInt("NextGame", 1);
         SceneManager.LoadScene("MainGame");
     }
 }

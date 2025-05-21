@@ -4,11 +4,10 @@ using UnityEngine.UI;
 
 public class Home : BasickScreen
 {
-    public Button profileButton;
+    public Button backButton;
     public TMP_Text score;
     public TMP_Text currentLevel;
-    public BasickScreen profile;
-    public BasickScreen tutorial;
+    public BasickScreen mainMenu;
     public BasickScreen help;
     public BasickScreen restart;
 
@@ -22,23 +21,18 @@ public class Home : BasickScreen
     {
         base.Subscribe();
     
-        profileButton.onClick.AddListener(Profile);
+        backButton.onClick.AddListener(Back);
         helpBuster.onClick.AddListener(HelpBuster);
         restartBuster.onClick.AddListener(RestartBuseter);
 
         Show();
-
-        if (PlayerPrefs.GetInt("FirstGame") == 0)
-        {
-            tutorial.Show();
-        }
     }
 
     public override void Unsubscribe()
     {
         base.Unsubscribe();
     
-        profileButton.onClick.RemoveListener(Profile);
+        backButton.onClick.RemoveListener(Back);
         helpBuster.onClick.RemoveListener(HelpBuster);
         restartBuster.onClick.RemoveListener(RestartBuseter);
     }
@@ -65,9 +59,9 @@ public class Home : BasickScreen
     {
         currentLevel.text = "Level " + (PlayerPrefs.GetInt("Level") + 1);
     }
-    private void Profile()
+    private void Back()
     {
-        profile.Show();
+        mainMenu.Show();
     }
 
     private void HelpBuster()

@@ -21,6 +21,7 @@ public class Win : BasickScreen
 
     private void RestartScene()
     {
+        PlayerPrefs.SetInt("NextGame", 1);
         SceneManager.LoadScene("MainGame");
     }
 }
